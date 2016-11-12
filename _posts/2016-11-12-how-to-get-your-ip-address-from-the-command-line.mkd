@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "How to get your IP address from the command line"
+date:   2016-11-12 01:30:07 +0100
+---
+
+I finally found out what's the way to show your public IP address from the command line.
+
+    curl icanhazip.com
+
+See
+[find-your-public-ip-anywhere-with-icanhazipcom.](https://lifehacker.com/5785602/find-your-public-ip-anywhere-with-icanhazipcom)
+
+Since we are talking about commands not to use a graphical interface, this is also very cool to get the weather forecast:
+
+    curl wittr.in
