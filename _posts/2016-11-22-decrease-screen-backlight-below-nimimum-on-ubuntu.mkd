@@ -1,0 +1,8 @@
+---
+layout: post
+title: "How to decrease screen backlight (brightness) below minimum on Ubuntu"
+published: false
+date: 2016-11-22
+---
+
+<http://askubuntu.com/a/175291/382931>

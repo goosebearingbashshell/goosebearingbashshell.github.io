@@ -1,0 +1,6 @@
+---
+layout: post
+title:  "How to get your IP address from the command line"
+date:   2016-11-20 17:30:17 +0100
+published: false
+---
