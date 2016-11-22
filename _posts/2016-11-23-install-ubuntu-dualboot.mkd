@@ -1,6 +1,6 @@
 ---
 layout: post
 title: Install Ubuntu on Dualboot on a laptop
-date:
+date: 2016-11-24
 published: false
 ---
