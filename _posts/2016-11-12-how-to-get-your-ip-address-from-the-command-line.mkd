@@ -11,6 +11,16 @@ I finally found out what's the way to show your public IP address from the comma
 See
 [find-your-public-ip-anywhere-with-icanhazipcom.](https://lifehacker.com/5785602/find-your-public-ip-anywhere-with-icanhazipcom)
 
+\[Edit: mar. 22 nov. 2016\]
+
+I found even better, and although the URL is less cool than the above lolcat
+syntax, I'm amazed by the speed of this command :
+
+    curl ident.me
+
+I found this in this [stackoverflow answer]().
+
+
 Since we are talking about commands not to use a graphical interface, this is also very cool to get the weather forecast:
 
     curl wittr.in

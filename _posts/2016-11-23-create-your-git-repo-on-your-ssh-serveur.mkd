@@ -1,0 +1,124 @@
+---
+layout: post
+title: "Create your own git repository on your ssh server"
+date: 2016-11-23
+---
+
+If you just want the How To, skip the [Why](#why) and
+[Rsync](#an-attempt-with-rsync) sections and jump directly to the
+[Steps](#git-steps) section.
+
+# Why?
+
+I am a bioinformatician constantly working on a server. For my current project
+(master and thesis), I wrote plenty of scripts in a directory named ---guess
+what--- `scripts/`.
+
+But what happens when the server is down? (And that happens more often that
+you'd wish, well you know what I mean)
+
+I love `git`, and had "version-controled" my `~/scripts/` directory for a few
+month, but without setting a remote. The reason is that our system
+administrator encourages us not to send our work on sites like github, and I
+couldn't even negociate for a (free) private repository on bitbucket.
+
+# An attempt with rsync
+
+It's gonna be easier if you know the names of the two machines we are talking
+about so let me introduce you to these charming beasts:
+
+- `mydawg` is the computer on my desk, the one that is less likely to crash;
+- `amphisbaena` is the server (hidden reptilian entity living underground).
+
+Also you'll need my username on both machine, let's say `me`.
+
+Ok, so I first thought I could simply use `rsync` and `cron` to periodically
+synchronize between my working machine (`mydawg`) and the server (`amphisbaena`).
+
+I was ambitious and wanted to be able to work both from `mydawg` and
+`amphisbaena`: therefore I need to avoid overwriting more recent changes on any
+side.
+
+I made this script on `mydawg` in the directory `scripts/`:
+
+```bash
+#!/usr/bin/bash
+# Name of this script: sync.sh
+
+# NOTE: the '/' at the end is important. see man rsync.
+local="./"
+remote="dyoclust:programTestingArea/synced_with_ldog27/"
+
+# download
+rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $remote $local
+# upload
+rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $local $remote
+```
+
+**Explanation:**
+
+`--update` is to "skip files that are newer on the recever";
+
+`-a` is an alias for many useful option that you wanna use when doing backups;
+
+`-v` for verbose;
+
+`-z` to compress during transfer.
+
+
+That works, however, what happens when you delete or move a file on one side?
+It'll come back at the next syncing, so you'll actually need to execute the
+delete or move on _both_ sides. You can't counter this by using the option
+`--delete` because that would delete newly created files on one side and that's
+not what you want... Or if you use `--delete` only in the "download" command,
+you can't create new files on `mydawg`. If you happen to forget that, your new
+creation will be soon deleted.
+
+Plus, will slip to our transition by saying that you must not forget to sync
+before working or you could end up with conflicts in case you made new stuff on
+both sides.
+
+All that verbiage lead us to consider **`git`** as the ideal solution.
+
+
+# Git: steps
+
+log on the server:
+
+    ssh amphisbaena
+
+Create the repository directory:
+
+    mkdir -P ~/mygit/scripts_amphisbaena.git
+
+init the repo as a _sharing_ repo (not working). You basically can't have a
+working tree in a repo designed for sharing, that's explained [here](). Took me
+some time to confirm that intuition. That's why here you use the `--bare`
+option:
+
+    git init --bare
+
+Now set up this repository as the remote for your existing working repository:
+
+    cd ~/scripts/
+	git remote add origin file:///users/me/mygit/scripts_amphisbaena.git
+	git push -u origin master
+
+Side note: you need to use `-u` (`--set-upstream`) with `git push` because it
+will later allow you to simply type `git pull` instead of `git pull origin
+master`. If you forget it the first time, you can still do your `git push -u`
+later.
+
+Al'right, now your sharing repository is set up on the server. You can go on your local
+machine and clone it using the ssh protocole:
+
+    # This is performed on `mydawg`
+	git clone ssh://me@amphisbaena/users/me/mygit/scripts_amphisbaena.git
+
+And that was all! If you searched the net for "how to set up a git server", you
+would have found commands to create a "git" user and so on, actions that
+require sudo privileges so you usually can't perform that on a team server. It
+may be obvious to you that the above simple procedure was sufficient, but
+wasn't completely clear to me when researching the subject.
+
+
