@@ -74,7 +74,7 @@ not what you want... Or if you use `--delete` only in the "download" command,
 you can't create new files on `mydawg`. If you happen to forget that, your new
 creation will be soon deleted.
 
-Plus, will slip to our transition by saying that you must not forget to sync
+Plus, I will slip to our transition by saying that you must not forget to sync
 before working or you could end up with conflicts in case you made new stuff on
 both sides.
 
