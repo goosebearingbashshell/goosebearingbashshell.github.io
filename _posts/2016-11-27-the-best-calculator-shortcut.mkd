@@ -9,6 +9,9 @@ faster to hit the "Calc" key from your keyboard and using the default
 terminal opened, I still decided to make some good use of this otherwise
 superfluous "Calc" key.
 
+
+# The best calculator:
+
 I mapped a new shortcut to it. That's *my* calculator now:
 
     gnome-terminal --hide-menubar --geometry=60x20 -t Python -x python -Q new -i -c "from numpy import *"
@@ -36,4 +39,14 @@ Like this, I already have all numpy loaded, and I can type `pi`, `e`, `log` and
 all those functions quite suited for a calculator.
 
 All of this was just because I like to be the one that's right.
+
+# The best calculator (bis):
+
+I improved the previous solution by setting a specific gnome-terminal profile
+for this task. It's cooler because I can set a different font (Inconsolata), a
+more transparent background, and write the geometry, the window title and the
+python command directly in the profile settings. This new profile is named
+"Calculaterm", so I updated my keyboard shortcut to simply this:
+
+    gnome-terminal --hide-menubar --window-with-profile=Calculaterm
 
