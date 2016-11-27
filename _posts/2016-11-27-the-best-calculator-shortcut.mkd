@@ -1,0 +1,39 @@
+---
+layout: post
+tags: Ubuntu
+---
+
+I only use python as a calculator. However a friend made me remark that it's
+faster to hit the "Calc" key from your keyboard and using the default
+`gnome-calculator`.  Although I don't quite agree since I always have a
+terminal opened, I still decided to make some good use of this otherwise
+superfluous "Calc" key.
+
+I mapped a new shortcut to it. That's *my* calculator now:
+
+    gnome-terminal --hide-menubar --geometry=60x20 -t Python -x python -Q new -i -c "from numpy import *"
+
+A quick explanation:
+
+It launches a new terminal (`gnome-terminal`) executing the command `python -Q new -i -c "from
+numpy import *"`.
+
+#### The gnome-terminal part:
+
+* `--hide-menubar` disables the menu bar of the terminal (file, edit and so on)
+* `--geometry=60x20`: terminal size of 60 columns x 20 lines
+* `-t Python`: title of the windows is "Python"
+* `-x`: everything after this is the command executed.
+
+#### The python part:
+
+* `-Q new` allow int/int divisions to return float values (no longer required
+	to write points after numbers to make sure they are floats).
+* `-c ...` execute the specified command.
+* `-i` open the interactive shell after having executed the command.
+
+Like this, I already have all numpy loaded, and I can type `pi`, `e`, `log` and
+all those functions quite suited for a calculator.
+
+All of this was just because I like to be the one that's right.
+
