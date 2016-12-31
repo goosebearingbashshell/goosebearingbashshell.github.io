@@ -47,7 +47,7 @@ I made this script on `mydawg` in the directory `scripts/`:
 
 # NOTE: the '/' at the end is important. see man rsync.
 local="./"
-remote="dyoclust:programTestingArea/synced_with_ldog27/"
+remote="amphisbaena:programTestingArea/synced_with_mydawg/"
 
 # download
 rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $remote $local
