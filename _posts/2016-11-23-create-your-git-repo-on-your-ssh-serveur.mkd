@@ -50,9 +50,9 @@ local="./"
 remote="amphisbaena:programTestingArea/synced_with_mydawg/"
 
 # download
-rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $remote $local
+rsync -ravz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $remote $local
 # upload
-rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $local $remote
+rsync -ravz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $local $remote
 ```
 
 **Explanation:**
@@ -60,6 +60,10 @@ rsync -avz --update --exclude "sync.sh" --exclude ".sync.sh.swp" $local $remote
 `--update` is to "skip files that are newer on the recever";
 
 `-a` is an alias for many useful option that you wanna use when doing backups;
+
+`-r` copy recursively in subdirectories. For some obscure reason, even though
+     `-a` is an alias for `-rlptgoD`, it seemed to me that it doesn't work as
+     expected if you don't add `-r`...
 
 `-v` for verbose;
 
