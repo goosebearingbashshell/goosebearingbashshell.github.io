@@ -4,12 +4,15 @@ title:  "How to get your IP address from the command line"
 date:   2016-11-12 01:30:07 +0100
 ---
 
+# Fetching the IP from the right URLs with `curl`
+
 I finally found out what's the way to show your public IP address from the command line.
 
     curl icanhazip.com
 
 See
 [find-your-public-ip-anywhere-with-icanhazipcom.](https://lifehacker.com/5785602/find-your-public-ip-anywhere-with-icanhazipcom)
+
 
 \[Edit: mar. 22 nov. 2016\]
 
@@ -18,9 +21,29 @@ syntax, I'm amazed by the speed of this command :
 
     curl ident.me
 
-I found this in this [stackoverflow answer]().
+I found it in this [stackoverflow answer]().
+
+# With `wget`
+
+If you prefer `wget`, that will do:
+
+    wget -q -O - ident.me
 
 
-Since we are talking about commands not to use a graphical interface, this is also very cool to get the weather forecast:
+# How to find the IPv4/IPv6 address
+
+The other day, I wanted to access a server at home using its dynamic IP
+address. So I configured my router for this, but then <http://ident.me> was
+returning an IPv6 address, and I didn't know how to make this work with ssh...
+not yet...  will try someday...  So to force detection of my IPv4 address, I
+fortunately found this [french website](https://ip.lafibre.info). The command
+to use is:
+
+    curl https://ipv4.lafibre.info/ip.php
+
+# Bonus: fetch the weather forecast in your terminal
+
+Since we are talking about commands not to use a graphical interface, this is
+also very cool to get the weather forecast:
 
     curl wittr.in
