@@ -27,9 +27,17 @@ github_username:  Glouvel
 
 # Build settings
 markdown: kramdown
+#theme: jekyll-theme-hacker
 theme: minima
-gems:
+plugins:
   - jekyll-feed
+  #- jekyll-assets
 exclude:
+  #- _includes
   - Gemfile
   - Gemfile.lock
+  - vendor
+  - teststyle.css
+  - WTFPL.txt
+  - interesting_fonts.txt
+  - goosetheme
