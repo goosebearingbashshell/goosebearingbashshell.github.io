@@ -18,7 +18,7 @@ But what happens when the server is down? (And that happens more often that
 you'd wish, well you know what I mean)
 
 I love `git`, and had "version-controled" my `~/scripts/` directory for a few
-month, but without setting a remote. The reason is that our system
+months, but without setting a remote. The reason is that our system
 administrator encourages us not to send our work on sites like github, and I
 couldn't even negociate for a (free) private repository on bitbucket.
 
