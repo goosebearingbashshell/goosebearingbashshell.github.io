@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// Define defaults for each variable.
+
+$base-font-family: "Alegreya Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//$base-font-family: "PT Serif", serif;
+$title-font-family: "Ruda", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font-family: "Alegreya Sans SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   20px;
+$base-font-weight: normal; //400;
+$title-font-weight: bold;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #eee;
+$background-color: #020202;
+$brand-color:      #11df85; //#0bdd81; //#1dd5b5; //#1dd585; //#fda724; //#fd6624; //#e76438; //#d5851d;
+$link-color:       #11d2df;
+$header-font-color: #df8511;
+
+$grey-color:       #7d7d7d;
+$grey-color-light: lighten($grey-color, 25%);
+$grey-color-dark:  darken($grey-color, 40%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+// Import partials.
+@import
+  "goosetheme/base",
+  "goosetheme/layout",
+  "goosetheme/syntax-highlighting"
+;
