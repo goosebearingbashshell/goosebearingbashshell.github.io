@@ -39,5 +39,6 @@ exclude:
   - vendor
   - teststyle.css
   - WTFPL.txt
+  - todo.mkd
   - interesting_fonts.txt
   - goosetheme
