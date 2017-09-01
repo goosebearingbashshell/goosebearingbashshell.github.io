@@ -1,0 +1,5 @@
+
+- [ ] Goose image in the header
+- [ ] Inconsolata font for pre/code
+- [ ] Bitbucket link in footer
+- [ ] test monokai pygment syntax highlighting theme?
