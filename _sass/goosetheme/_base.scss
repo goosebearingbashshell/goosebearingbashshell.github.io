@@ -139,7 +139,7 @@ blockquote {
 pre,
 code {
   //@include relative-font-size(0.9375);
-  @include relative-font-size(0.85);
+  @include relative-font-size(0.80);
   font-family: $code-font-family;
   border: 1px solid $grey-color-dark;
   border-radius: 3px;
