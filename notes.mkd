@@ -1,0 +1,29 @@
+# Interesting fonts
+
+Atomic Age
+Crete Round
+Cuprum
+Kanit
+Natanael Gama
+Orbitron #Too sci-fi?
+Patua One
+Play
+Righteous
+Rokkitt
+Rubik
+Ruda (!!!)
+Teko
+Varela Round
+
+# Images
+
+The "Goose-tree" from Gerard's _Herbal_ (1597)
+![https://commons.wikimedia.org/wiki/File:PSM_V04_D585_The_goose_tree.jpg]
+
+<a id='5G-gqXXtSrRNoKsocJlb_A' class='gie-single'
+href='http://www.gettyimages.com/detail/596365325' target='_blank'
+style='color:#a7a7a7;text-decoration:none;font-weight:normal
+!important;border:none;display:inline-block;'>Embed from Getty
+Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'5G-gqXXtSrRNoKsocJlb_A',sig:'nOTMCUck-Aq4SHgUkOSwya7Zus53iC-GHaWa0T3G2vs=',w:'501px',h:'594px',items:'596365325',caption:
+true ,tld:'com',is360: false })});</script><script
+src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
