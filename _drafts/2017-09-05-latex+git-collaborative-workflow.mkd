@@ -1,0 +1,7 @@
+---
+layout: post
+title: "LaTeX + Git collaborative workflow"
+date: 2017-09-05
+---
+
+
