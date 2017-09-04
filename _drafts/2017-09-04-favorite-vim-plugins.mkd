@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Favorite vim plugins"
+date: 2017-09-04
+---
+
+- [](Pathogen)
+- [](CSApprox)
+- [](setcolors.vim)
+- [](vim-snipmate)
+- [](slimux)
+- [](vim-css-color)
+
+# For specific file types
+
+- [](LaTeX-Box)
+- [](vim-gnupg)
+- [](vim-markdown)
