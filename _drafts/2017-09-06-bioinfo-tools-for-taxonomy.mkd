@@ -1,0 +1,63 @@
+---
+layout: post
+title: "Bioinfo tools for taxonomy"
+date: 2017-09-06
+---
+
+
+# Work with taxonomy
+
+## [taxonkit|https://github.com/shenwei356/taxonkit] shell tools
+
+## `ete3.NCBITaxa` in Python
+
+[http://etetoolkit.org/docs/latest/tutorial/tutorial_ncbitaxonomy.html]
+
+## My own scripts
+
+### query NCBI taxonomy
+
+#### Where to find the scripts
+
+Latest version of the tools [here|https://github.com/GullumLuvl/Scientific2CommonName].
+
+##### Requirements
+
+Install the python modules [`requests`|http://docs.python-requests.org/en/master/] and [`beautifulsoup4`|https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-beautiful-soup].
+
+*Note*: There exist a NCBI API, if someone wanna dive into it, it will be cleaner than parsing html.
+
+#### Convert species scientific to common name and vice-versa
+
+[Scripts de biologistes^Scientific2CommonName.py]
+
+```bash
+# scientific -> common
+./Scientific2CommonName.py "Cuculus canoris" "Podiceps crustatus"
+# common -> scientific
+./Scientific2CommonName.py -c "common cuckoo" "great crested grebe"
+# from stdin
+echo -e "Cuculus canoris\nPodiceps crustatus" | ./Scientific2CommonName.py 
+```
+
+#### Find a higher-level taxonomic classification of a taxon
+
+For example, find the family names to which the species "_Ursus arctos_" and "_Canis lupus_" belong.
+
+Use [`FindClade.py`|https://github.com/GullumLuvl/Scientific2CommonName/blob/master/FindClade.py]
+
+### Use the downloaded ncbi taxonomy files
+
+#### Find taxon synonyms
+
+`~/scripts/taxtools/gettaxonsynonyms.py`
+
+#### Extract a tree in newick format
+
+`~/scripts/taxtools/gettaxontree.py`
+
+#### Annotate internal nodes of a timetree according to the NCBI taxonomy
+
+`~/scripts/taxtools/timetree_taxonify.py`
+
+
