@@ -1,0 +1,10 @@
+---
+title: How to synchronize notes between android and ubuntu? (using some
+markdown formating)
+layout: post
+date: lun. 11 sept. 2017
+---
+
+# OwnCloud + FolderSync + Writer+
+
+# Turtl
