@@ -46,4 +46,4 @@ to use is:
 Since we are talking about commands not to use a graphical interface, this is
 also very cool to get the weather forecast:
 
-    curl wittr.in
+    curl wttr.in
