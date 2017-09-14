@@ -1,0 +1,7 @@
+---
+layout: post
+title: Ideas for a bibliography manager
+date: 2017-09-16
+---
+
+Graph of to-read-list with citations as edges.
