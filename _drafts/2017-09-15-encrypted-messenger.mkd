@@ -1,0 +1,10 @@
+---
+layout: post
+title: How to encrypt your facebook conversation (on linux)
+date: 2017-09-15
+---
+
++ pidgin
++ facebook plugin
++ encryption plugin
+
