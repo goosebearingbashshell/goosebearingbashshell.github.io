@@ -1,0 +1,8 @@
+---
+layout: post
+title: xkcd-like figures
+---
+
+# Plots (matplotlib)
+
+# phylogenetic trees (R: phytools)
