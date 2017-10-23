@@ -1,0 +1,9 @@
+% Quick ways to start an http server
+% 
+%
+
+#
+
+    python -m "import SimpleHTTPServer"
+
+# More complex server using Python CherryPy
