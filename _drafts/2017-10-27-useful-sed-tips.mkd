@@ -1,0 +1,50 @@
+---
+title: Useful Sed Tips
+date: 2017-10-27
+---
+
+# What did you sed?
+
+sed: stream editor
+
+    info sed
+
+is a more comprehensive explaination than `man sed`.
+
+# Beware
+
+Greedy matching.
+
+# Forgotten commands
+
+`=`
+`l0`
+
+sed -r
+
+# Simple tricks
+
+Searching for two words in a line (word1 _and_ word2), in any given order:
+
+    sed -n '/word1/{/word2/p}'
+
+Line count (`wc -l` is too mainstream):
+
+    sed -n '$='
+
+# Advanced tricks
+
+* Nested capture works!
+* Workaround to the greedy matching
+
+# Advanced sed: buffers and multiline commands
+
+Sed has _two_ variables: the "Pattern space" and the "Hold space".
+
+`P` and `D` act on the _first_ line of the pattern space: i.e the first
+line in the same order as the input stream (unless you did weird
+substitutions), i.e the _topmost_ line
+
+# Debugger
+
+[sedsed](http://aurelio.net/projects/sedsed/)
