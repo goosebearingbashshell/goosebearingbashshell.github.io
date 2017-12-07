@@ -17,7 +17,7 @@ Greedy matching.
 
 # Forgotten commands
 
-`=`
+`=` Number of the input line
 `l0`
 
 sed -r
