@@ -33,6 +33,8 @@ You can simply do the following:
 
     # Update according to the value given by `tmux show-env`
     os.environ['DISPLAY'] = "localhost:10.0"
+    # Does not work in all case (not if loading Qt)
+    # Subprocess would be better
 
 ## In R
 
