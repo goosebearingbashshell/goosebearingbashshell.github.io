@@ -1,6 +1,5 @@
 ---
-title: How to synchronize notes between android and ubuntu? (using some
-markdown formating)
+title: How to synchronize notes between android and ubuntu? (markdown formatted)
 layout: post
 date: lun. 11 sept. 2017
 ---

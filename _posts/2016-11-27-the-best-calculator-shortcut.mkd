@@ -4,7 +4,7 @@ tags: Ubuntu
 ---
 
 I only use python as a calculator. However a friend made me remark that it's
-faster to hit the "Calc" key from your keyboard and using the default
+faster to hit the "Calc" key from your keyboard and use the default
 `gnome-calculator`.  Although I don't quite agree since I always have a
 terminal opened, I still decided to make some good use of this otherwise
 superfluous "Calc" key.
