@@ -15,13 +15,17 @@ update the DISPLAY variable value in opened panels.
 
 # Show the DISPLAY value according to tmux
 
-    tmux show-env | grep ^DISPLAY
+```bash
+tmux show-env | grep ^DISPLAY
+```
 
 # Update the DISPLAY environment variable
 
 ## In bash
 
-    export DISPLAY="`tmux show-env | sed -n 's/^DISPLAY=//p'`"
+```bash
+export DISPLAY="`tmux show-env | sed -n 's/^DISPLAY=//p'`"
+```
 
 ## In a python/Ipython session:
 
@@ -29,19 +33,23 @@ No need to close and reopen this session!
 
 You can simply do the following:
 
-    import os
+```python
+import os
 
-    # Update according to the value given by `tmux show-env`
-    os.environ['DISPLAY'] = "localhost:10.0"
-    # Does not work in all case (not if loading Qt)
-    # Subprocess would be better
+# Update according to the value given by `tmux show-env`
+os.environ['DISPLAY'] = "localhost:10.0"
+# Does not work in all case (not if loading Qt)
+# Subprocess would be better
+```
 
 ## In R
 
 Same principle:
 
-    # Display the current value
-    Sys.getenv('DISPLAY')
+```R
+# Display the current value
+Sys.getenv('DISPLAY')
 
-    # Set to a new one
-    Sys.setenv(DISPLAY='localhost:10.0')
+# Set to a new one
+Sys.setenv(DISPLAY='localhost:10.0')
+```

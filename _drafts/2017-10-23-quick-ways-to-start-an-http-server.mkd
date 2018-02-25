@@ -1,8 +1,10 @@
-% Quick ways to start an http server
-% 
-%
+---
+layout: post
+title: Quick ways to start an http server
+date: 2017-10-23
+---
 
-#
+# Quickest
 
     python -m "import SimpleHTTPServer"
 
