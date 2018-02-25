@@ -35,6 +35,8 @@ theme: minima
 plugins:
   - jekyll-feed
   #- jekyll-assets
+#highlighter: pygments
+include: ['_pages']
 exclude:
   #- _includes
   - Gemfile
