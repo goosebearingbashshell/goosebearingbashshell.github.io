@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "Reset the shell DISPLAY variable in a tmux session over ssh"
+date:   2017-12-07
+---
+
+Sometimes I need to display windows from ssh (most often Python or R
+plots). Unfortunately, if you reattach a tmux session, the information about
+the X server is outdated and graphical windows can't be created:
+
+in details, your shell (bash or something else) defines a variable named
+`$DISPLAY` that allows GUI programs to connect to it. If you ssh with the `-X`
+option, the display variable would be set to something like `localhost:10.0`
+(Check with `echo $DISPLAY`).
+
+Unfortunately, its value sometimes changes at a new connection, but, --and here
+is the problem--, it does not change in your tmux panes.
+
+Here is the (simple) solution to this:
+
+# Add the DISPLAY variable to the updated environment variables in .tmux.conf
+
+With recent versions of tmux, you shouldn't have to do anything.
+
+Just in case, check the value of the tmux global `update-environment` option:
+
+    tmux show-options -g update-environment
+
+The default value should be "`DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"`.
+
+If the crucial environment variable `DISPLAY` is not in there, append it:
+edit `.tmux.conf` with the following:
+
+    set-option -g update-environment " DISPLAY"
+
+There is now nothing else to do for newly opened panels. However you still need to
+update the DISPLAY variable value in already opened panels.
+
+# Show the DISPLAY value according to tmux
+
+```bash
+tmux show-env | grep ^DISPLAY
+```
+
+# Update the DISPLAY environment variable
+
+## In bash
+
+```bash
+export DISPLAY="`tmux show-env | sed -n 's/^DISPLAY=//p'`"
+```
+
+## In a python/Ipython session:
+
+No need to close and reopen this session!
+
+You can simply do the following:
+
+```python
+import os
+
+# Update according to the value given by `tmux show-env`
+os.environ['DISPLAY'] = "localhost:10.0"
+# Does not work in all cases (not if loading Qt)
+# Subprocess would be better
+```
+
+## In R
+
+Same principle:
+
+```R
+# Display the current value
+Sys.getenv('DISPLAY')
+
+# Set to a new one
+Sys.setenv(DISPLAY='localhost:10.0')
+```
