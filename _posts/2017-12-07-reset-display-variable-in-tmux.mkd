@@ -65,6 +65,12 @@ os.environ['DISPLAY'] = "localhost:10.0"
 # Subprocess would be better
 ```
 
+Alternatively, you can make use of the IPython _magics_:
+
+```python
+%env DISPLAY=localhost:10.0
+```
+
 ## In R
 
 Same principle:
