@@ -20,20 +20,18 @@ data exploration.
 
 Some people like me seem to prefer the more markdown-oriented philosophy of
 `rmarkdown`, but with Python (or any other language possible in
-jupyter, and some of them developped solutions:
+jupyter), and some of them developped solutions:
 
-[podoc](https://github.com/podoc/podoc)
+1. [podoc](https://github.com/podoc/podoc)
 
-As far as I'm concerned, the interesting feature is the conversion *from*
-markdown *to* notebook.
+    As far as I'm concerned, the interesting feature is the conversion *from*
+    markdown *to* notebook.
 
-Then converting the *executed* notebook could be done with `jupyter nbconvert --execute`.
+    Then converting the *executed* notebook could be done with `jupyter nbconvert --execute`.
 
-About the comparison with Rmarkdown, see [this issue](https://github.com/podoc/podoc/issues/36).
+    About the comparison with Rmarkdown, see [this issue](https://github.com/podoc/podoc/issues/36).
 
-[knitpy](https://github.com/jankatins/knitpy)
+2. [knitpy](https://github.com/jankatins/knitpy)
 
 
-[^1]: I'm not yet efficient enough to produce snakemake pipeline on the fly
-during exploratory analysis; that's an idea to dig though: creating pipelines
-from notebooks?
+[^1]: I'm not yet efficient enough to produce snakemake pipeline on the fly during exploratory analysis; that's an idea to dig though: creating pipelines from notebooks?
