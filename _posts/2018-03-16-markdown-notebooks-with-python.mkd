@@ -1,0 +1,39 @@
+---
+layout: post
+title: 'Markdown notebooks with Python'
+date: Friday 16 March, 2018
+---
+
+Jupyter notebooks are great, but they take me away from my nice terminal
+environment: tmux panels and vim buffers.
+
+I thought Jupyter Lab would take me back to a comfortable workflow where I
+interact easily between terminals, text editors and python/R consoles, but it's
+simply not as slick. However, two major points of notebooks are:
+
+1. *reproducibility*, something not easy to achieve when just typing commands
+   in a terminal [^1];
+2. *visualisation*: any plot produced is displayed for ever in the notebook.
+
+So I'd like to add these two essential parts of a scientific workflow to my
+data exploration.
+
+Some people like me seem to prefer the more markdown-oriented philosophy of
+`rmarkdown`, but with Python (or any other language possible in
+jupyter, and some of them developped solutions:
+
+[podoc](https://github.com/podoc/podoc)
+
+As far as I'm concerned, the interesting feature is the conversion *from*
+markdown *to* notebook.
+
+Then converting the *executed* notebook could be done with `jupyter nbconvert --execute`.
+
+About the comparison with Rmarkdown, see [this issue](https://github.com/podoc/podoc/issues/36).
+
+[knitpy](https://github.com/jankatins/knitpy)
+
+
+[^1]: I'm not yet efficient enough to produce snakemake pipeline on the fly
+during exploratory analysis; that's an idea to dig though: creating pipelines
+from notebooks?
