@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: jamstatic/jamstatic-fr
+  repo: goosebearingbashshell/goosebearingbashshell
   branch: master
 
 publish_mode: editorial_workflow
@@ -13,6 +13,17 @@ collections:
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Auteur", name: "author", widget: "string"}
+      - {label: "Twitter Card", name: "image", widget: "image"}
+      - {label: "Texte", name: "body", widget: "markdown"}
+  - name: "Pages"
+    label: "Pages"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
       - {label: "Titre", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
