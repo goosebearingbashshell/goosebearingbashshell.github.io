@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: goosebearingbashshell/goosebearingbashshell
+  repo: goosebearingbashshell/goosebearingbashshell.github.io
   branch: master
 
 publish_mode: editorial_workflow
