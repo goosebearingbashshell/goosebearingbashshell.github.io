@@ -1,5 +1,5 @@
 ---
-title: The LaTeX IDE with Vim+Zathura
+title: Writing LaTeX with Vim+Zathura
 layout: post
 ---
 Vim users wouldn't leave their favorite editor, even to edit LaTeX in a powerful IDE such as TeXMaker... But you might say, how do you switch back and forth between locations in the generated pdf file, and the corresponding latex line in the source file? That's where **synctex** comes in!
