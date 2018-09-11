@@ -8,6 +8,8 @@ publish_mode: editorial_workflow
 media_folder: "_data/img"
 #public_folder: "/img"  # where media are found in the published site.
 
+display_url: "https://goosebearingbashshell.netlify.com"
+
 collections:
   - name: "posts"   # Used in routes, e.g. /admin/collections/blog
     label: "Posts"  # Used in the UI
@@ -18,13 +20,13 @@ collections:
     format: frontmatter
     fields:  # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string", default: "untitled"}
-      - {label: "Layout", name: "layout", widget: "hidden"}
-      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Layout", name: "layout", widget: "string"}  # "hidden"
+      - {label: "Publish date", name: "date", widget: "datetime", required: false}
       - {label: "Author", name: "author", widget: "string", required: false}
       #- {label: "Twitter Card", name: "image", widget: "image", required: false}
-      - {label: "Text", name: "body", widget: "markdown", required: false}
-      - {label: "Publish date", name: "date", widget: "datetime", required: false}
       - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Text", name: "body", widget: "markdown", required: false}
   - name: "pages"
     label: "Pages"
     folder: "_pages"
@@ -33,11 +35,11 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string", default: "untitled"}
       - {label: "Layout", name: "layout", widget: "hidden"}
-      - {label: "Description", name: "description", widget: "string", required: false}
       - {label: "Author", name: "author", widget: "string", required: false}
       #- {label: "Twitter Card", name: "image", widget: "image", required: false}
-      - {label: "Text", name: "body", widget: "markdown", required: false}
       - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Text", name: "body", widget: "markdown", required: false}
   - name: "jekylldrafts"   # Used in routes, e.g. /admin/collections/blog
     label: "Jekyll Drafts"  # Used in the UI
     folder: "_drafts"  # The path to the folder where the documents are stored
@@ -47,10 +49,10 @@ collections:
     format: frontmatter
     fields:  # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string", default: "untitled"}
-      - {label: "Layout", name: "layout", widget: "hidden"}
-      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Layout", name: "layout", widget: "string"}  # "hidden"
+      - {label: "Publish date", name: "date", widget: "datetime", required: false}
       - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "string", required: false}
       #- {label: "Twitter Card", name: "image", widget: "image", required: false}
       - {label: "Text", name: "body", widget: "markdown", required: false}
-      - {label: "Publish date", name: "date", widget: "datetime", required: false}
-      - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
