@@ -6,6 +6,7 @@ backend:
 publish_mode: editorial_workflow
 
 media_folder: "_data/img"
+#public_folder: "/img"  # where media are found in the published site.
 
 collections:
   - name: "posts"   # Used in routes, e.g. /admin/collections/blog
@@ -16,22 +17,40 @@ collections:
     extension: "mkd"
     format: frontmatter
     fields:  # The fields for each document, usually in front matter
-      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Title", name: "title", widget: "string", default: "untitled"}
+      - {label: "Layout", name: "layout", widget: "hidden"}
       - {label: "Description", name: "description", widget: "string", required: false}
       - {label: "Author", name: "author", widget: "string", required: false}
       #- {label: "Twitter Card", name: "image", widget: "image", required: false}
       - {label: "Text", name: "body", widget: "markdown", required: false}
-      - {label: "Publish date", name: "date", widget: "datetime"}
-      - {label: "Featured image", name: "thumbnail", widget: "image"}
+      - {label: "Publish date", name: "date", widget: "datetime", required: false}
+      - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
   - name: "pages"
     label: "Pages"
     folder: "_pages"
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
-      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Title", name: "title", widget: "string", default: "untitled"}
+      - {label: "Layout", name: "layout", widget: "hidden"}
       - {label: "Description", name: "description", widget: "string", required: false}
-      - {label: "Auteur", name: "author", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string", required: false}
       #- {label: "Twitter Card", name: "image", widget: "image", required: false}
-      - {label: "Texte", name: "body", widget: "markdown", required: false}
-      - {label: "Featured image", name: "thumbnail", widget: "image"}
+      - {label: "Text", name: "body", widget: "markdown", required: false}
+      - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
+  - name: "jekylldrafts"   # Used in routes, e.g. /admin/collections/blog
+    label: "Jekyll Drafts"  # Used in the UI
+    folder: "_drafts"  # The path to the folder where the documents are stored
+    create: true  # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Filename template
+    extension: "mkd"
+    format: frontmatter
+    fields:  # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string", default: "untitled"}
+      - {label: "Layout", name: "layout", widget: "hidden"}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string", required: false}
+      #- {label: "Twitter Card", name: "image", widget: "image", required: false}
+      - {label: "Text", name: "body", widget: "markdown", required: false}
+      - {label: "Publish date", name: "date", widget: "datetime", required: false}
+      - {label: "Featured image", name: "thumbnail", widget: "image", required: false}
