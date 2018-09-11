@@ -19,8 +19,10 @@ collections:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string", required: false}
       - {label: "Author", name: "author", widget: "string", required: false}
-      - {label: "Twitter Card", name: "image", widget: "image", required: false}
+      #- {label: "Twitter Card", name: "image", widget: "image", required: false}
       - {label: "Text", name: "body", widget: "markdown", required: false}
+      - {label: "Publish date", name: "date", widget: "datetime"}
+      - {label: "Featured image", name: "thumbnail", widget: "image"}
   - name: "pages"
     label: "Pages"
     folder: "_pages"
@@ -30,5 +32,6 @@ collections:
       - {label: "Titre", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string", required: false}
       - {label: "Auteur", name: "author", widget: "string", required: false}
-      - {label: "Twitter Card", name: "image", widget: "image", required: false}
+      #- {label: "Twitter Card", name: "image", widget: "image", required: false}
       - {label: "Texte", name: "body", widget: "markdown", required: false}
+      - {label: "Featured image", name: "thumbnail", widget: "image"}
