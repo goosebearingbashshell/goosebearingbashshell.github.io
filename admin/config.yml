@@ -14,6 +14,7 @@ collections:
     create: true  # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Filename template
     extension: "mkd"
+    format: frontmatter
     fields:  # The fields for each document, usually in front matter
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string", required: false}
