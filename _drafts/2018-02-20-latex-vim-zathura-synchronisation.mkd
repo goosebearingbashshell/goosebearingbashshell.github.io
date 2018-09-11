@@ -1,0 +1,23 @@
+---
+title: Writing LaTeX with Vim+Zathura
+layout: post
+---
+Vim users wouldn't leave their favorite editor, even to edit LaTeX in a powerful IDE such as TeXMaker... But you might say, how do you switch back and forth between locations in the generated pdf file, and the corresponding latex line in the source file? That's where **synctex** comes in!
+
+It is an option that you can enable during compilation, that allows several pdf readers to find the line in your favorite editor (not only Vim).
+
+Then all you need to do is setup the keyboard shortcut in your pdf reader, and in your editor.
+
+```bash
+pdflatex -synctex=1 mydocument.tex
+```
+
+```vimscript
+
+```
+
+In zathura config file: (`~/.config/zathurarc` in Ubuntu):
+
+```conf
+
+```
