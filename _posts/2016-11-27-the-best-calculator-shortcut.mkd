@@ -1,6 +1,5 @@
 ---
-layout: post
-tags: Ubuntu
+title: The best calculator shortcut in Ubuntu
 ---
 
 I only use python as a calculator. However a friend made me remark that it's
