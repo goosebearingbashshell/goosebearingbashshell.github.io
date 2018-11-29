@@ -1,0 +1,21 @@
+---
+layout: post
+title: 'Pros and cons of the python logging module'
+date: Thursday 29 November, 2018
+---
+
+# Pros
+
+- output to different destinations (stderr, file, e-mail...)
+- filter messages by gravity
+- Configure only at the application entry point.
+- automatic hierarchical relation of loggers following the package structure.
+- Debug by passing a `loglevel` option, not by editing code with print
+    statements.
+
+# Cons
+
+- Bloat
+- Need to face potential bugs *using* logging, when the aim was to debug...
+- Not useful for simple bioinformatics programs interacting with the user
+    through command line interface.
