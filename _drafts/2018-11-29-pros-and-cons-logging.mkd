@@ -16,6 +16,7 @@ date: Thursday 29 November, 2018
 # Cons
 
 - Bloat
+- Performance cost?
 - Need to face potential bugs *using* logging, when the aim was to debug...
 - Not useful for simple bioinformatics programs interacting with the user
     through command line interface.
