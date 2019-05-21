@@ -1,0 +1,28 @@
+---
+title: Zotero small configuration details on Ubuntu
+layout: post
+---
+
+# Disable the annoying window of the auto-update
+
+Answered
+[here](https://forums.zotero.org/discussion/36581/disable-check-for-updates/).
+
+You have to go in "Preferences" > "Advanced", then open the config editor (if
+there's a warning, ignore, and set `app.update.enabled` *and* `app.update.auto`
+to `false`.
+
+# Customise the BibTex entry keys format
+
+By default, when exporting to `.bib`, the label is something like:
+
+`foote_probability_1996`: all small caps, i.e "author"\_"first word of title"\_"year".
+
+I prefer `Foote1996`.
+
+The setup has to be done in `~/Zotero/translators/BibTex.js` file (Your data
+directory is showed in the advanced preferences).
+
+Also see other bibtex export options in
+<https://github.com/commonman/zotero-bibtex-sb>.
+
