@@ -1,0 +1,28 @@
+---
+title: Sed mindset
+layout: post
+---
+
+`sed` is one of the most marvellous command in the unix world. 
+First of all, its efficiency makes it a necessary element in your file processing
+toolbox, especially for its *substitution* feature: replace *regular
+expression* patterns in a given text file.
+
+I am not advocating obscure coding style... however it's amusing to be aware of
+the almost unlimited capabilities of this seemingly simplistic command-line;
+indeed, `sed` is actually a language, and it's Turing-complete! As an
+illustration, although totally impractical, you can perform [addition][1].
+
+The topic of this post is not to show you all the things you can do with GNU `sed`
+(for this, please consult `info sed` at the sections "Less Frequently-Used
+Commands" and "Commands for 'sed' gurus"...), but rather to pinpoint other
+programs that make use of `sed` tricks:
+
+# Modify path names with `tar`
+
+The great "tape archiver" `tar` command has a convenient option:
+
+>      --transform, --xform EXPRESSION
+>             use sed replace EXPRESSION to transform file names
+
+[1]: https://unix.stackexchange.com/a/36959
