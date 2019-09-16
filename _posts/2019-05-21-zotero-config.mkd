@@ -3,6 +3,8 @@ title: Zotero small configuration details on Ubuntu
 layout: post
 ---
 
+I have Zotero 5.0.60 installed from ppa on Ubuntu 18.04.
+
 # Disable the annoying window of the auto-update
 
 Answered
