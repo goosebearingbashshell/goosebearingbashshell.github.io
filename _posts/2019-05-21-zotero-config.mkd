@@ -25,6 +25,36 @@ I prefer `Foote1996`.
 The setup has to be done in `~/Zotero/translators/BibTex.js` file (Your data
 directory is showed in the advanced preferences).
 
+Make a copy of `BibTeX.js` to `BibTex_AuthorYear.js` (or from BibLaTex.js);
+then edit the following lines:
+
+```javascript
+//%a = first listed creator surname
+//%y = year
+//%t = first word of title
+var citeKeyFormat = "%a_%t_%y";
+```
+
+Now additional changes are needed to make your translator unambiguously
+recognized by Zotero: at the very beginning of the file, change the dictionary
+entries for "translator" and "label". For "translator", just make sure the new
+[GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) is unique
+across the existing Zotero translators.
+
+Finally, to keep capitalized author names, modify the `citeKeyConversions` dictionary to
+remove the `.toLowerCase()`. Then, replace the first line of the `tidyAccents`
+function:
+
+```javascript
+// replace:
+var r = s.toLowerCase();
+// by:
+var r = s;
+```
+
+And update the fallback list with the capital equivalents.
+
+
 Also see other bibtex export options in
 <https://github.com/commonman/zotero-bibtex-sb>.
 
