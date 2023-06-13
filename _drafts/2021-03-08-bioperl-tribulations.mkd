@@ -1,0 +1,78 @@
+---
+Title: Bioperl install tribulations
+Date: 2021/03/08 15:17
+---
+
+The infamous Bioperl needs to be available (globally) for my current project.
+
+Unfortunately, installing Perl modules does not make sense.
+
+# How to install any Perl module
+
+
+## Legacy or not legacy
+
+First, there are two installers available:
+
+- `cpan`, the legacy one.
+- `cpanm` ("cpanminus"), a presumably better one (actually recommended).
+
+Most of the time, `cpan` will be already installed on your system, but
+cpanminus should be installed, e.g. from `APT` on Debian/Ubuntu (do that).
+
+`cpan` is designed to be run as root, unless you install and configure `local::lib`.
+"cpanminus" is designed to be run as a regular user.
+
+Also, `cpan` requires to be configured at first use, and most people would
+choose default settings, but I digged in the config options and many stuff
+don't seem to make sense.
+
+First, the configuration file is stored in the root user home directory (aka
+`/root/`, which is annoying because you regular users don't have read access
+here. And that fact does not appear to be configurable, of course.
+
+By default, all other directories go there as well, in particular the Build
+cache, and also the "prefs". To me, it does not appear consistent with
+conventional linux system hierarchy, which would possibly use `/var/cache` and
+`/var/lib/`, but it is only a guess based on my limited knowledge.
+
+Anyway, even if installing as root, choose "cpanminus" !
+
+Note that the default usage of cpan and cpanminus seem *compatible* (on my
+machine, it installed to the same directory).
+
+## CPAN anomalies
+
+As surprising as it is for a legacy program present in all Perl distributions,
+cpan has bugs. And annoying ones.
+
+I used cpan 1.672, the default from Ubuntu 20.04. (At the time there is version
+2.22).
+
+
+* When running the interactive config, from the shell, plenty of prompted text
+    do not appear correctly (entire sentences missing). They appear correct
+    when the configuration is launched from the cpan interpreter with `o conf init`.
+* The `-f` option (force install even when package tests failed) is ignored.
+    Therefore there is no way to install a program with failing tests, even if
+    unimportant (and I think this happens a lot, in bioinformatics at least).
+
+## nice features from cpanminus
+
+- Seamless user installations;
+- cpanminus has a *uninstall* command;
+
+
+# Installing "bioperl"
+
+I must be bad at Googling, but I am still unsure how to install this one.
+
+I tried both `cpanm BioPerl` and `cpanm Bio::Perl`, and interestingly both
+worked, but the first command additionally installs a package file named
+`BioPerl.pm`. I don't know what extra packages are installed by the second
+command, but the naming is probably misleading (are we installing a "Perl" submodule
+from the perl module "Bio" ??)
+
+I also tried `cpanm Bio`, but this failed (no such package found).
+
+
