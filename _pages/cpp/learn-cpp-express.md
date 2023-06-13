@@ -593,7 +593,7 @@ duckduckgo-ed every single thing I needed to know to make it work:
 - How to define a variable?
 - How to define an array of strings?
 - How to read a file line by line?
-- How to pass arguments to a script? (This one is burried deep in some books).
+- How to pass arguments to a script? (This one is buried deep in some books).
 - How to define a function?
 - ...
 
