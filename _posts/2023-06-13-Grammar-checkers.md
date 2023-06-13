@@ -18,21 +18,22 @@ useless words.
 
 An simple, efficient and free online tool, for english and academic writing:
 
-<grammark.org>
+[grammark.org](https://grammark.org)
 
 ## LanguageTool
 
 Works for several languages, but some features require paying for a premium
 account.
 
-<https://languagetool.org/>
+[languagetool.org](https://languagetool.org/)
 
 
 ## Grammalecte (french)
 
-This is for French only. It can be installed as a plugin to libreoffice.
+This is for French only: [grammalecte.net](https://grammalecte.net/). It is installable as modules for separate programs, such as Libreoffice, Thunderbird or Chrome.
+
 
 ## Needed: Libreoffice or Vim plugins
 
 The above online tools are helpful, but plugins for Libreoffice and my text editor
-of choice would allow for a smoother usage. Do you know any?
+of choice would be smoother. Do you know any?
