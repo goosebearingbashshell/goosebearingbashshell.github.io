@@ -47,6 +47,10 @@ int main() {
     }
 ```
 
+**NOTE**: the `main` function behaves differently to other functions:
+1. it cannot be called from within the program;
+2. if the return statement is omitted, it assumes `return(0);`.
+
 ## Statement syntax
 
 In C++, a statement can span multiple lines, and ends with a *semicolon* `;`.
@@ -59,6 +63,8 @@ TODO: explanations:
 - include,
 - main function with return statement
 - std::cout and the `<<` operator.
+- intermediate values get destroyed if not stored (beware when using objects
+    that reference to those, they become meaningless at the next statement)
 
 Current questions:
 - Why `<iostream>` and not `<iostream.h>`?
@@ -69,6 +75,14 @@ Current questions:
 using namespace std;
 
 cout << "Hello, World" << endl
+```
+
+`using` can be used to "alias" any name that we find too long to write:
+
+e.g. if we have to repeatedly use the type `std::vector<int>::iterator`:
+
+```cpp
+using iterator = std::vector<int>::iterator;
 ```
 
 # Compiling
@@ -86,6 +100,7 @@ In short, this will make a functional program:
 Current questions:
 - does the order of arguments matter?
 - what are some useful options? `-Wall` for warnings, `-g` unknown.
+
 
 # Literals
 
@@ -174,7 +189,7 @@ standard input/output streams.
 #include <iostream>
 #include <string>
 
-using namespace std
+using namespace std;
 
 int main() {
     string line;
@@ -200,6 +215,11 @@ Checking valid input, for example if `x` is defined as `int` but the user did
 not enter a valid integer: `cin` evaluates has a bool depending on the success,
 so can be checked using e.g. `if(!cin)`. Even better, `if(!(cin >> x))` will
 simultaneously assign and check.
+
+If `cin` is in fail state (for instance, it could not convert input to the
+desired type), reset it with `cin.clear()`.
+
+`cin.eof()` returns true if we reached end of stream.
 
 # Arrays, associative arrays, complex structured objects
 
@@ -318,7 +338,9 @@ mystream.close();
 
 If just for input, use `#include <ifstream>`, and for output, `#include <ofstream>`.
 
-# Memory pointers
+# Memory pointers, aka references
+
+"lvalue reference"
 
 ```cpp
 // notation
@@ -329,12 +351,52 @@ p->m // member m of struct/class pointed by p (equals x.m if p is a pointer to x
 
 delete p ;  // destroy and free object at address p
 delete p[]; // destroy and free array of objects at p
+
+// define reference objects:
+int& y = x; // Bind y to the same content than integer x
+
+// when using auto on references, it must be explicit:
+auto& y = x;
 ```
 
 # Defining functions
 
+`return_type function_name(param1_type param1, param2_type param2) {return ...}`
 
-# Control structures (if, while, for, etc)
+Defining with *referenced* arguments (notice the `&`):
+
+`return_type function_name(param1_type& param1, param2_type& param2) {return ...}`
+
+## Prototyping
+
+*Declaration* ≠ *Definition*:
+
+you can declare a function without defining the body immediately, e.g.:
+
+```cpp
+int square(int x);
+```
+
+Once declared, a function can be called in subsequently defined functions, 
+and also you can assign their return value using the `auto` type:
+`auto sx = square(x);`
+
+## Inline functions
+
+Can be defined in multiple places (as opposed to regular ones)
+
+```cpp
+inline int square(int x) {
+    return x*x;
+}
+```
+
+## Declaration inside another function
+
+Declaring inside another function is possible, but not defining.
+
+
+# Loops and control structures (while, for, if, etc)
 
 ```cpp
 if (condition) {
@@ -363,6 +425,80 @@ for (int elem : myvec) { ... }
 - it is a good habit to increment using `++i` rather than `i++` that evaluates
     to the old value (as per jesyspa/linear-cpp).
 
+- `break` and `continue`
+
+# Header files
+
+Files in `.hpp` or `.h`. They aren't given to the compiler, but *included* in
+source files (`.cpp`). They are like libraries to store common functions. They
+should contain function *declarations*, which can be *defined* in an eponymous
+`.cpp` file.
+
+This requires a *preprocessor* statement:
+
+```cpp
+#include "mydeclarations.hpp"
+```
+
+It is equivalent to pasting the entire file content here, so there is no
+"module scope" as in python. This means that included files within
+`mydefinitions.hpp` don't need to be included again (but don't rely on it).
+
+# Macros
+
+```cpp
+#define MACRO_NAME arbitrary text
+```
+
+This preprocessor statement will replace all `MACRO_NAME` (usually uppercase)
+by the arbitrary text. Do not name macros with double-underscores (special).
+
+```cpp
+#ifndef MACRO_NAME
+code...
+#endif
+```
+
+Insert the code if the macro has not been defined.
+
+For header files, this allow to check that they are included only once:
+
+```cpp
+// Entire content of "mydefinitions.hpp" file.
+
+// Check that it has not been already included
+#ifndef MYDEFINITIONS_HPP
+// Then mark it as included
+#define MYDEFINITIONS_HPP
+
+/* function declarations, inline functions ... */
+
+#endif
+```
+
+Modern compilers support `#pragma once` to do this.
+
+
+# Iterators
+
+(Python users: it's not what you think).
+
+An iterator is a *reference* to a *scalar* element inside a vector.
+
+With a vector "myvec":
+
+- `myvec.end()` returns an iterator that is after the last element (undefined).
+- `myvec.begin()` returns an iterator with the first vector element, or the
+    same value as `myvec.end()` if the vector is empty.
+- `myvec.begin() + 2` refers to the third position.
+
+To obtain the element referenced by the iterator, use *dereferencing*:
+
+```cpp
+auto it = myvec.begin();
+it += 2;
+int elem = *it; // same as: int elem = myvec[2]; (don't do this with myvec.end())
+```
 
 
 # For more, see this excellent cheat sheet
